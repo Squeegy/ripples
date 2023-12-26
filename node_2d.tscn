@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dreegsew50y4r"]
+
+[ext_resource type="Shader" path="res://node_2d.gdshader" id="1_dfdc5"]
+[ext_resource type="Texture2D" uid="uid://c01ubr2nfacn" path="res://solid_color_64x64.png" id="1_w6lej"]
+[ext_resource type="Script" path="res://WaterTexture.gd" id="2_pah40"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_re231"]
+shader = ExtResource("1_dfdc5")
+shader_parameter/ripple_centers = PackedVector2Array()
+shader_parameter/time_since_ripple = PackedFloat32Array()
+shader_parameter/viewport_size = null
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_re231")
+position = Vector2(576, 324)
+scale = Vector2(18, 10.125)
+texture = ExtResource("1_w6lej")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 64)
+script = ExtResource("2_pah40")
